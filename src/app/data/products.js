@@ -2,7 +2,7 @@ import { useEffect } from "react"
 
 
 const products = async () => {
-    const res = await fetch('https://fakestoreapi.com/products')
+    const res = await fetch('https://fakestoreapi.com/products?limit=4')
     const data = await res.json()
   
 }

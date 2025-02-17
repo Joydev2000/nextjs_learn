@@ -1,6 +1,7 @@
 import Link from "next/link";
 import About from "./About/page";
-
+import New_products from "./New_products/page";
+import Products from "./Products/page";
 
 export default function page() {
   return (
@@ -14,8 +15,9 @@ export default function page() {
 
       <Link href="/Products">products</Link>
 
-      <About />
- 
+      {/* <About />
+      <Products />
+      <New_products /> */}
       </div>
   )
 }
