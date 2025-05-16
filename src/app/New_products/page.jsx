@@ -1,8 +1,9 @@
 import React from 'react'
 import Link from 'next/link'
 
+
 async function page() {
-    const res = await fetch('https://fakestoreapi.com/products?limit=4')
+    const res = await fetch('https://fakestoreapi.com/products?limit=5')
     const products = await res.json()
   return (
     <div>
@@ -12,7 +13,7 @@ async function page() {
 
         <div className="grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 xl:gap-x-8">
           {products.map((product) => (
-            <Link key={product.id} href={"/Products_details/" + product.id} className="group">
+            <Link key={product.id} href={`/New_products/${product.id}`} className="group">
               <img
                 alt={product.imageAlt}
                 src={product.image}

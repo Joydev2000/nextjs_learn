@@ -6,8 +6,8 @@ const products = async () => {
     const data = await res.json()
   
 }
-console.log(data)
-useEffect(() => {
-    products()
-}, [])
+// console.log(data)
+// useEffect(() => {
+//     products()
+// }, [])
 export default products

@@ -1,18 +1,8 @@
 import Link from 'next/link'
 import React from 'react'
 
-
-// export async function generateStaticParams() {
-//   const res = await fetch('https://fakestoreapi.com/products?limit=200')
-//   const products = await res.json()
-  
-//   return products.map((product) => ({
-//     Products_details: product.id.toString(),
-//   }))
-// }
-
 async function page({ params }) {
-  const res = await fetch(`https://fakestoreapi.com/products?limit=200`)
+  const res = await fetch(`https://fakestoreapi.com/products?limit=20`)
   const products = await res.json()
   const product = products.find(p => p.id === parseInt(params.Products_details))
   
@@ -35,7 +25,7 @@ async function page({ params }) {
   }
 
   return (
-    <div className="container mx-auto p-4 min-h-screen w-full flex items-center justify-center flex-col">
+    <div className="container mx-auto p-4">
       <h1 className="text-2xl font-bold mb-4">{product.title}</h1>
       <div className="bg-white rounded-lg shadow p-6">
         <img src={product.image} alt={product.title} className="w-48 h-48 object-contain mb-4 mx-auto" />
@@ -43,7 +33,7 @@ async function page({ params }) {
         <p className="text-gray-600 mb-4">{product.description}</p>
         <div className="flex items-center justify-between">
           <span className="text-lg text-gray-600 font-semibold">${product.price}</span>
-          <Link href={`/Products_details/${params.Products_details}/cart/${product.id}`} className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 transition-colors">
+          <Link href={`/cart/${product.id}`} className="bg-blue-500 text-white px-4 py-2 rounded">
             Add to Cart
           </Link>
         </div>
