@@ -5,9 +5,9 @@ import Link from "next/link";
 import React from "react";
 
 export default async function BlogDetailPage({ params }) {
-  const data = await blogs();
-const blog = data.find((b) => b.slug === params.slug);
-
+  // Get all blogs by setting a large pageSize
+  const { data } = await blogs(1, 100);
+  const blog = data.find((b) => b.slug === params.slug);
 
   if (!blog) {
     return (
